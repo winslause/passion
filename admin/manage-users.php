@@ -39,6 +39,24 @@ if (strlen($_SESSION['alogin']) == 0) {
     // Rest of your HTML code...
 }
 ?>
+<?php
+if (isset($_GET['delete_id'])) {
+    $delete_id = $_GET['delete_id'];
+    $sql = "DELETE FROM users WHERE id = :delete_id";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':delete_id', $delete_id, PDO::PARAM_INT);
+    $query->execute();
+
+    if ($query->rowCount() > 0) {
+        $msg = "User deleted successfully";
+        header('location: manage-users.php');
+    } else {
+        $error = "Something went wrong. Please try again";
+    }
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -154,7 +172,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                 <button class="btn btn-secondary float-lg-end" type="button" data-bs-theme="dark"
                     style="margin-left: 800px;">
-                    <a href="/">logout</a>
+                    <a href="login.php">logout</a>
 
                 </button>
 
@@ -167,12 +185,12 @@ if (strlen($_SESSION['alogin']) == 0) {
             <main class="content px-3 py-2">
 
                 <div class="container-fluid"
-                    style="background-color: rgb(177, 173, 173);margin:10px; display:block; text-align: center;">
+                    style="background-color: deeppink;margin:10px; display:block; text-align: center;">
                     <div class="mb-3">
                         <h1>Manage Team Members</h1>
                     </div>
                     <button style="margin: 10px;" id="addNewUserBtn" type="button" class="btn btn-success float-lg-end"
-                        data-bs-toggle="modal" data-bs-target="#mymodal">Add new team member</button>
+                        data-bs-toggle="modal" data-bs-target="#mymodal"><a style="color: white;" href="manage-users.php#newUserForm">Add new team member</a></button>
                 </div>
                 <div class="container">
                     <table class="table table-hover table-dark">
@@ -206,10 +224,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         <td><?php echo htmlentities($result->description1); ?></td>
 
                                         <td>
-                                            <button class="btn btn-warning btn-sm"
-                                                onclick="location.href='manage-users.php?edit_id=<?php echo htmlentities($result->id); ?>'">Edit</button>
-                                            <a href="#" class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+                                            <button style="margin: 5px;" class="btn btn-warning btn-sm"
+                                                onclick="location.href='manage-users.php?edit_id=<?php echo htmlentities($result->id); ?>#updateUserForm'">Edit</button>
+                                            <a style="margin: 5px; href=" manage-users.php?delete_id=<?php echo htmlentities($result->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
                                         </td>
                                     </tr>
                             <?php $cnt = $cnt + 1;

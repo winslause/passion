@@ -111,7 +111,7 @@
 
                 <button class="btn btn-secondary float-lg-end" type="button" data-bs-theme="dark"
                     style="margin-left: 800px;">
-                    <a href="/">logout</a>
+                    <a href="logout.php">logout</a>
 
                 </button>
 
@@ -124,7 +124,7 @@
             <main class="content px-3 py-2">
 
                 <div class="container-fluid"
-                    style="background-color: rgb(177, 173, 173);margin:10px; display:block; text-align: center;">
+                    style="background-color: deeppink;margin:10px; display:block; text-align: center;">
                     <div class="mb-3">
                         <h3>Dashboard</h3>
                     </div>

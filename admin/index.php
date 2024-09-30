@@ -65,7 +65,7 @@ if (isset($_POST['login'])) {
 
                                 </form>
 
-                                <p style="margin-top: 4%" align="center"><a href="../home.php">Back to Home</a> </p>
+                                <p style="margin-top: 4%" align="center"><a href="../index.html">Back to Home</a> </p>
                             </div>
 
                         </div>
