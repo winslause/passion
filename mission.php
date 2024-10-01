@@ -31,7 +31,7 @@
                         <li><a href="./about.php">About us</a></li>
                         <li><a href="./mission.php">Objectives</a></li>
                         <li><a href="./service.php">Projects</a></li>
-                        <li><a href="#gallary">Gallary</a></li>
+                        <li><a href="gallery.php">Gallary</a></li>
                         <li><a href="./index.php#contact" class="contact-btn">Contact</a></li>
                     </ul>
                     <div class="toggle" onclick="toggle()"></div>

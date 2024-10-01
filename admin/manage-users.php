@@ -99,7 +99,7 @@ if (isset($_GET['delete_id'])) {
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="manage-users.php#addmember" class="sidebar-link">Add Member</a>
+                                <a href="manage-users.php#addmember" class="sidebar-link">manage team</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="manage-users.php#addmember" class="sidebar-link">Edit Member</a>
@@ -117,7 +117,7 @@ if (isset($_GET['delete_id'])) {
                         </a>
                         <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="manage-gallery.php" class="sidebar-link">Add Image</a>
+                                <a href="manage-gallery.php" class="sidebar-link">manage gallery</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="manage-gallery.php" class="sidebar-link">Delete Image</a>
@@ -158,6 +158,19 @@ if (isset($_GET['delete_id'])) {
                         Contact Us
                     </a>
                     </li>
+                    <li class="sidebar-item" style="margin-top: 30px; margin-bottom:30px">
+                        <a href="logout.php" class="sidebar-link">
+                            <i class="fa-solid fa-sign-out-alt pe-2"></i>
+                            logout
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item" style="margin-top: 30px; margin-bottom:30px">
+                        <a href="changepassword.php" class="sidebar-link">
+                            <i class="fa-solid fa-key pe-2"></i>
+                            Change password
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>
@@ -170,11 +183,11 @@ if (isset($_GET['delete_id'])) {
 
                 </button>
 
-                <button class="btn btn-secondary float-lg-end" type="button" data-bs-theme="dark"
+                <!-- <button class="btn btn-secondary float-lg-end" type="button" data-bs-theme="dark"
                     style="margin-left: 800px;">
                     <a href="login.php">logout</a>
 
-                </button>
+                </button> -->
 
             </nav>
 
@@ -193,8 +206,8 @@ if (isset($_GET['delete_id'])) {
                         data-bs-toggle="modal" data-bs-target="#mymodal"><a style="color: white;" href="manage-users.php#newUserForm">Add new team member</a></button>
                 </div>
                 <div class="container">
-                    <table class="table table-hover table-dark">
-                        <thead>
+                    <table class="table table-hover table-striped">
+                        <thead class="thead-dark">
                             <tr>
                                 <!-- <th>ID</th> -->
                                 <th>#</th>
@@ -244,7 +257,7 @@ if (isset($_GET['delete_id'])) {
 
 
                 <!-- ADD NEW USER -->
-                <center style="width: 50%;">
+                <center style="width:50%;">
 
 
 
@@ -276,7 +289,7 @@ if (isset($_GET['delete_id'])) {
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
-                            <textarea type="text" class="form-control" name="description" id="exampleInputPassword1"
+                            <textarea style="height: 200px;" type="text" class="form-control" name="description" id="exampleInputPassword1"
                                 placeholder="Description"></textarea>
                         </div>
                         <div class="form-group">
@@ -356,7 +369,7 @@ if (isset($_GET['delete_id'])) {
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Description</label>
-                                        <textarea type="text" class="form-control" name="description" id="exampleInputPassword1"
+                                        <textarea style="height: 200px;" type="text" class="form-control" name="description" id="exampleInputPassword1"
                                             value=""><?php echo htmlentities($result->description1); ?></textarea>
                                     </div>
                                     <div class="form-group">
@@ -407,7 +420,8 @@ if (isset($_GET['delete_id'])) {
 
         if ($query->rowCount() > 0) {
             $msg = "User updated successfully";
-            // header('location:manage-users.php');
+            header('location:manage-users.php');
+            echo "<script>window.location.href='manage-users.php';</script>";
         } else {
             $error = "Something went wrong. Please try again";
         }

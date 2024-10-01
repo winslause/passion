@@ -39,7 +39,7 @@
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="manage-users.php#addmember" class="sidebar-link">Add Member</a>
+                                <a href="manage-users.php#addmember" class="sidebar-link">manage team</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="manage-users.php#addmember" class="sidebar-link">Edit Member</a>
@@ -57,7 +57,7 @@
                         </a>
                         <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="manage-gallery.php" class="sidebar-link">Add Image</a>
+                                <a href="manage-gallery.php" class="sidebar-link">manage gallery</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="manage-gallery.php" class="sidebar-link">Delete Image</a>
@@ -97,6 +97,19 @@
                         Contact Us
                     </a>
                     </li>
+                    <li class="sidebar-item" style="margin-top: 30px; margin-bottom:30px">
+                        <a href="logout.php" class="sidebar-link">
+                            <i class="fa-solid fa-sign-out-alt pe-2"></i>
+                            logout
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item" style="margin-top: 30px; margin-bottom:30px">
+                        <a href="changepassword.php" class="sidebar-link">
+                            <i class="fa-solid fa-key pe-2"></i>
+                            Change password
+                        </a>
+                    </li>
                 </ul>
             </div>
         </aside>
@@ -109,11 +122,11 @@
 
                 </button>
 
-                <button class="btn btn-secondary float-lg-end" type="button" data-bs-theme="dark"
+                <!-- <button class="btn btn-secondary float-lg-end" type="button" data-bs-theme="dark"
                     style="margin-left: 800px;">
                     <a href="logout.php">logout</a>
 
-                </button>
+                </button> -->
 
             </nav>
 
@@ -126,12 +139,12 @@
                 <div class="container-fluid"
                     style="background-color: deeppink;margin:10px; display:block; text-align: center;">
                     <div class="mb-3">
-                        <h3>Dashboard</h3>
+                        <h1>Projects</h1>
                     </div>
                 </div>
 
 
-                <h1>hello</h1>
+                <h3><i>Projects will be added manually on the hostside due to styling.</i></h1>
             </main>
         </div>
     </div>

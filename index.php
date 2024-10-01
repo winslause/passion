@@ -1,3 +1,32 @@
+<?php
+session_start();
+error_reporting(0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include('config.php');
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO contact(name1, email1, message1) VALUES(:name, :email, :message)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':name', $name, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->bindParam(':message', $message, PDO::PARAM_STR);
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    if ($lastInsertId) {
+        $msg = "Message sent successfully";
+        // header('location:manage-users.php');
+    } else {
+        $error = "Something went wrong. Please try again";
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +42,7 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -32,7 +60,7 @@
                     <li><a href="./about.php">About us</a></li>
                     <li><a href="./mission.php">Objectives</a></li>
                     <li><a href="./service.php">Projects</a></li>
-                    <li><a href="#gallary">Gallary</a></li>
+                    <li><a href="gallery.php">Gallary</a></li>
                     <li><a href="#contact" class="contact-btn">Contact</a></li>
                 </ul>
                 <div class="toggle" onclick="toggle()"></div>
@@ -41,25 +69,25 @@
         </div>
     </header>
 
-    
-<!-- create a slideshow using javascript -->
-<div>
-     <div class="w3-content w3-section" style="max-width:100%; height:500px;" >
-  <img class="mySlides" src="./assets/images/home-1.png" style="width:100%; height:fit-content;">
-  <img class="mySlides" src="./assets/images/mwanadada.png" style="width:100%; height:fit-content">
-  <img class="mySlides" src="./assets/images/slide1.jpg" style="width:100%; height:fit-content">
-  <img class="mySlides" src="./assets/images/slide2.jpg" style="width:100%; height:fit-content">
-</div> 
-</div>
+
+    <!-- create a slideshow using javascript -->
+    <div>
+        <div class="w3-content w3-section" style="max-width:100%; height:500px;">
+            <img class="mySlides" src="./assets/images/home-1.png" style="width:100%; height:fit-content;">
+            <img class="mySlides" src="./assets/images/mwanadada.png" style="width:100%; height:fit-content">
+            <img class="mySlides" src="./assets/images/slide1.jpg" style="width:100%; height:fit-content">
+            <img class="mySlides" src="./assets/images/slide2.jpg" style="width:100%; height:fit-content">
+        </div>
+    </div>
 
     <!------- Home Started -------->
     <section id="home">
         <!-- slideshow -->
-    
+
 
         <div class="home_page">
             <div class="home_content" data-aos="fade-up">
-                
+
                 <h1>Giving back to the society</h1>
                 <p>Our aim is to have champions and leaders whom can share and guide others.</p>
                 <div class="home-btn ">
@@ -67,7 +95,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
 
@@ -77,9 +105,9 @@
             <div class="rows" data-aos="fade-up">
                 <div class="about-content">
                     <h1>Our Group</h1>
-                    <p><strong>Passion Driven</strong> is a registered self-help group in Kibera constituency Nairobi Kenya. The group was started by our founder who had just an idea of visiting one children home in Kibera FOLKS he communicated to few friends in which he got support donations, clothes, sanitary towels and soaps with this it formed a team. 
-                        <br><br> The program of the day was to cook play games with the kids and make sure they have fun, after the event every person who came had enjoyed themselves to the brim, the team which was present for the first day was around 15 people after this the members chose the leaders and decided that it should be done more and more from there the leadership team planned events after one month there is an event. The group has seen growth in numbers of people who came to the event and also the impact which the team created as they visited these homes.  <br><br>
-                        To remove boredom also the team suggested that we should not visit just one home in Kibera but also different homes in Nairobi of which all of the members agreed out of 17 sub counties in Nairobi the team has managed to visit more than 11 in Nairobi and in some places the tam has visited twice. 
+                    <p><strong>Passion Driven</strong> is a registered self-help group in Kibera constituency Nairobi Kenya. The group was started by our founder who had just an idea of visiting one children home in Kibera FOLKS he communicated to few friends in which he got support donations, clothes, sanitary towels and soaps with this it formed a team.
+                        <br><br> The program of the day was to cook play games with the kids and make sure they have fun, after the event every person who came had enjoyed themselves to the brim, the team which was present for the first day was around 15 people after this the members chose the leaders and decided that it should be done more and more from there the leadership team planned events after one month there is an event. The group has seen growth in numbers of people who came to the event and also the impact which the team created as they visited these homes. <br><br>
+                        To remove boredom also the team suggested that we should not visit just one home in Kibera but also different homes in Nairobi of which all of the members agreed out of 17 sub counties in Nairobi the team has managed to visit more than 11 in Nairobi and in some places the tam has visited twice.
                     </p>
                 </div>
                 <div class="about-image">
@@ -130,7 +158,7 @@
         <div class="service_page ">
             <div class="service-content" data-aos="fade-up">
                 <h3>Our Services</h3>
-                <h1>Our aim is to have champions and leaders  <br> whom can share and guide others.</h1>
+                <h1>Our aim is to have champions and leaders <br> whom can share and guide others.</h1>
                 <!-- <div class="services-card ">
                     <div class="card ">
                         <h2>
@@ -176,12 +204,17 @@
                 <p> Please contact us and we will get back to you.
                 </p>
             </div>
-            <form action="#" method="post">
+            <!--  flash message -->
+            <div id="flash-message" style="color: green; text-align: center; margin-bottom: 10px;">
+                <?php if (isset($msg))
+                 echo $msg; ?>
+            </div>
+            <form action="index.php" method="POST">
 
                 <input type="text" name="name" placeholder="Enter your name">
                 <input type="email" name="email" placeholder="Enter your email">
                 <textarea name="message" placeholder="Enter your message"></textarea>
-                <input type="button" value="Send Message">
+                <button style="background-color: transparent; border:0;" type="submit" name="submit" value="Send Message"><a> send message</a></button>
             </form>
         </div>
     </section>
@@ -197,9 +230,11 @@
                 <div class="contact-details">
                     <h1>Contact Us</h1>
                     <li>
-                        <div class="fa fa-phone"></div><a href="tel:+919326048690">+254712345678</a></li>
+                        <div class="fa fa-phone"></div><a href="tel:+254712345678">+254712345678</a>
+                    </li>
                     <li>
-                        <div class="fa fa-envelope"></div><a href="mailto:wenbusale383@gmail.com">wenstech@gmail.com</a></li>
+                        <div class="fa fa-envelope"></div><a href="mailto:wenbusale383@gmail.com">wenstech@gmail.com</a>
+                    </li>
                     </li>
                 </div>
             </div>
@@ -209,7 +244,7 @@
                     <li><a href="./about.php">About</a></li>
                     <li><a href="./mission.php">Objectives</a></li>
                     <li><a href="./service.php"> Projects</a></li>
-                    <li><a href="./admin/index.php"> Admin test</a></li>
+                    <li style="margin-top:10px; ;"><a href="./admin/index.php"> Admin Login</a></li>
                 </ul>
             </div>
             <div class="info " data-aos="fade-up">
@@ -248,21 +283,23 @@
 
     <script src="./assets/main.js "></script>
     <script>
-var myIndex = 0;
-carousel();
+        var myIndex = 0;
+        carousel();
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000); // Change image every 2 seconds
-}
-</script>
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {
+                myIndex = 1
+            }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 4000); // Change image every 2 seconds
+        }
+    </script>
 
 
 </body>
