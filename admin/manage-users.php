@@ -70,6 +70,8 @@ if (isset($_GET['delete_id'])) {
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>admin portal</title>
+   
+
 </head>
 
 <body>
@@ -205,7 +207,7 @@ if (isset($_GET['delete_id'])) {
                     <button style="margin: 10px;" id="addNewUserBtn" type="button" class="btn btn-success float-lg-end"
                         data-bs-toggle="modal" data-bs-target="#mymodal"><a style="color: white;" href="manage-users.php#newUserForm">Add new team member</a></button>
                 </div>
-                <div class="container">
+                <div class=" table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
                     <table class="table table-hover table-striped">
                         <thead class="thead-dark">
                             <tr>

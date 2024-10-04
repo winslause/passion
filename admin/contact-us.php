@@ -153,7 +153,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                     </div>
 
 
-                    <div class="container">
+                    <div class=" table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
                         <table class="table table-hover table-striped">
                             <thead class="thead-dark">
                                 <tr>
