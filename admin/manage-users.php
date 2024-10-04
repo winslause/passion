@@ -257,7 +257,7 @@ if (isset($_GET['delete_id'])) {
 
 
                 <!-- ADD NEW USER -->
-                <center style="width:50%;">
+                <center style="width: 50%;">
 
 
 

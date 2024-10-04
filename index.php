@@ -19,13 +19,10 @@ if (isset($_POST['submit'])) {
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
         $msg = "Message sent successfully";
-        // header('location:manage-users.php');
     } else {
         $error = "Something went wrong. Please try again";
     }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,238 +33,225 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <meta name="description" content="We are working through online path, here we are sharing online links. As per issues and problems we can also serve at community level. Our service is not limited in one sector we provide all kind of service in social,
-    economic, financial, educational, emotional cultural and environmental issues.">
+    <meta name="description" content="We are working through online path, here we are sharing online links. As per issues and problems we can also serve at community level. Our service is not limited in one sector we provide all kind of service in social, economic, financial, educational, emotional cultural and environmental issues.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .bg-light-gray {
+            background-color: #f0f0f0;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #0056b3 !important;
+            font-size: 24px;
+        }
+
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+            padding: 10px 15px;
+        }
+
+        .nav-link:hover {
+            color: #0056b3 !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 10px;
+        }
+
+        #homeCarousel {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-img {
+                height: 200px;
+            }
+        }
+    </style>
+
+
+
 </head>
 
 <body>
 
-    <!-- Navbar Started-->
-    <header id="header">
-        <div class="nav">
-            <div class="nav-brand">
-                <img src="./assets/images/logo.jpg" alt="logo" srcset="">
-                <h2>Passion Driven</h2>
-            </div>
-            <div class="nav-item">
-                <ul style="color: rgb(11, 76, 54);">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="./about.php">About us</a></li>
-                    <li><a href="./mission.php">Objectives</a></li>
-                    <li><a href="./service.php">Projects</a></li>
-                    <li><a href="gallery.php">Gallary</a></li>
-                    <li><a href="#contact" class="contact-btn">Contact</a></li>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./assets/images/logo.jpg" alt="logo" height="60" class="d-inline-block align-top me-2">
+                <span style="font-size: 24px; color: #0056b3; font-weight: bold;">PASSION DRIVEN</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.php">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./mission.php">Objectives</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./service.php">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <div class="toggle" onclick="toggle()"></div>
-
             </div>
         </div>
-    </header>
+    </nav>
 
 
-    <!-- create a slideshow using javascript -->
-    <div>
-        <div class="w3-content w3-section" style="max-width:100%; height:500px;">
-            <img class="mySlides" src="./assets/images/home-1.png" style="width:100%; height:fit-content;">
-            <img class="mySlides" src="./assets/images/mwanadada.png" style="width:100%; height:fit-content">
-            <img class="mySlides" src="./assets/images/slide1.jpg" style="width:100%; height:fit-content">
-            <img class="mySlides" src="./assets/images/slide2.jpg" style="width:100%; height:fit-content">
+    <!-- Carousel -->
+    <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true" data-bs-interval="2500">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./assets/images/home-1.png" class="d-block w-100 carousel-img" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/images/mwanadada.png" class="d-block w-100 carousel-img" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/images/slide1.jpg" class="d-block w-100 carousel-img" alt="Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/images/slide2.jpg" class="d-block w-100 carousel-img" alt="Slide 4">
+            </div>
         </div>
     </div>
 
-    <!------- Home Started -------->
-    <section id="home">
-        <!-- slideshow -->
 
-
-        <div class="home_page">
-            <div class="home_content" data-aos="fade-up">
-
-                <h1>Giving back to the society</h1>
-                <p>Our aim is to have champions and leaders whom can share and guide others.</p>
-                <div class="home-btn ">
-                    <a href="#contact">CONTACT</a>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!------- About Started -------->
-    <section id="about ">
-        <div class="about-bg ">
-            <div class="rows" data-aos="fade-up">
-                <div class="about-content">
-                    <h1>Our Group</h1>
-                    <p><strong>Passion Driven</strong> is a registered self-help group in Kibera constituency Nairobi Kenya. The group was started by our founder who had just an idea of visiting one children home in Kibera FOLKS he communicated to few friends in which he got support donations, clothes, sanitary towels and soaps with this it formed a team.
-                        <br><br> The program of the day was to cook play games with the kids and make sure they have fun, after the event every person who came had enjoyed themselves to the brim, the team which was present for the first day was around 15 people after this the members chose the leaders and decided that it should be done more and more from there the leadership team planned events after one month there is an event. The group has seen growth in numbers of people who came to the event and also the impact which the team created as they visited these homes. <br><br>
-                        To remove boredom also the team suggested that we should not visit just one home in Kibera but also different homes in Nairobi of which all of the members agreed out of 17 sub counties in Nairobi the team has managed to visit more than 11 in Nairobi and in some places the tam has visited twice.
-                    </p>
-                </div>
-                <div class="about-image">
-                    <img src="./assets/images/about7.jpg" width="400px" height="400px" alt="" srcset="">
+    <!-- Home Section -->
+    <section id="home" class="py-5 " style="background-color:gray;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center" data-aos="fade-up" style="margin:10px;">
+                    <h1 class="display-4">Giving back to the society</h1>
+                    <p class="lead">Our aim is to have champions and leaders whom can share and guide others.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">CONTACT</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!------- Mission Started -------->
-    <!-- <section id="mission">
-        <div class="mission-bg">
-            <div class="rows">
-                <div class="mission-image">
-                    <h3>WHAT OUR MISSON</h3>
-                    <img src="./assets/images/mission.png" alt="" srcset="">
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center" data-aos="fade-up">
+                <div class="col-md-6">
+                    <h2>Our Group</h2>
+                    <p><strong>Passion Driven</strong> is a registered self-help group in Kibera constituency Nairobi Kenya. The group was started by our founder who had just an idea of visiting one children home in Kibera FOLKS he communicated to few friends in which he got support donations, clothes, sanitary towels and soaps with this it formed a team.</p>
+                    <p>The program of the day was to cook play games with the kids and make sure they have fun, after the event every person who came had enjoyed themselves to the brim, the team which was present for the first day was around 15 people after this the members chose the leaders and decided that it should be done more and more from there the leadership team planned events after one month there is an event.</p>
                 </div>
-                <div class="mission-content">
-                    <h1>Aims and Objectives</h1>
-                    <ul>
-                        <li>
-                            <p>Providing assistance in the advancement of culture and society in order to extend a helping hand towards various community issues and uplift the morals of the society in a dignified manner</p>
-                        </li>
-                        <li>
-                            <p>Ultimate goal of the foundation will be to help each and every individual approaching in the best yet effective manner.</p>
-                        </li>
-                        <li>
-                            <p>Working towards achieving equality amongst society.</p>
-                        </li>
-                        <li>
-                            <p>Uplifting of the society.</p>
-                        </li>
-                        <li>
-                            <p>Making talent meet Resources</p>
-                        </li>
-                        <li>
-                            <p>Spreading awareness in the society by analyzing various aspect of Root cause of the Situation
-                            </p>
-                        </li>
+                <div class="col-md-6">
+                    <img src="./assets/images/about7.jpg" class="img-fluid" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Section -->
+    <section id="service" class="py-5 bg-gray" style="background-color:deeppink;">
+
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h3>Our Services</h3>
+                <h2 class="display-4">Our aim is to have champions and leaders <br> whom can share and guide others.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" style="background-image: url('assets/images/contact.png'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8" data-aos="fade-up">
+                    <h2 class="text-center mb-4">Let's Connect</h2>
+                    <p class="text-center mb-5">Please contact us and we will get back to you.</p>
+                    <?php if (isset($msg)) : ?>
+                        <div class="alert alert-success text-center" id="flash-message">
+                            <?php echo $msg; ?>
+                        </div>
+                    <?php endif; ?>
+                    <form action="index.php" method="POST">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" name="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h2>Passion Driven</h2>
+                    <p>Giving back to the society</p>
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254712345678" class="text-light">+254712345678</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:wenbusale383@gmail.com" class="text-light">wenstech@gmail.com</a></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!------- Service Started -------->
-    <section id="service">
-        <div class="service_page ">
-            <div class="service-content" data-aos="fade-up">
-                <h3>Our Services</h3>
-                <h1>Our aim is to have champions and leaders <br> whom can share and guide others.</h1>
-                <!-- <div class="services-card ">
-                    <div class="card ">
-                        <h2>
-                            Educational Care
-                        </h2>
-                        <p>Our aim is to provide such educational care, by which character is formed, health of mind increased, the intelligence is expanded, with the help of this one can stand on one’s feet.</p>
-                    </div>
-                    <div class="card ">
-                        <h2>
-                            Support Healthy Environment
-                        </h2>
-                        <p>Earth provides enough to satisfy every one's need, but human should not be greedy towards environment.
-
-                        </p>
-                    </div>
-                    <div class="card ">
-                        <h2>
-                            Employment Opportunities </h2>
-                        <p>We are providing help in the field of employment with the help of Corporate Industries, Small Scale Industries and Multi National Companies.
-                        </p>
-                    </div>
-                    <div class="card ">
-                        <h2>
-                            Emotional Hand </h2>
-                        <p>An emotional self care helps you to build a strong future. Science has proven that the state of our mind has an immense effect on our health and well being.
-                        </p>
-                    </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./about.php" class="text-light">About</a></li>
+                        <li><a href="./mission.php" class="text-light">Objectives</a></li>
+                        <li><a href="./service.php" class="text-light">Projects</a></li>
+                        <li><a href="./admin/index.php" class="text-light">Admin Login</a></li>
+                    </ul>
                 </div>
-                <div class="see-more ">
-                    <a href=" ">See More</a>
-                </div> -->
-            </div>
-        </div>
-    </section>
-
-
-    <!----------Contact form --------->
-    <section id="contact">
-        <div class="contact_form" data-aos="fade-up">
-            <div class="title">
-                <h1>Let's Connect
-                </h1>
-                <p> Please contact us and we will get back to you.
-                </p>
-            </div>
-            <!--  flash message -->
-            <div id="flash-message" style="color: green; text-align: center; margin-bottom: 10px;">
-                <?php if (isset($msg))
-                 echo $msg; ?>
-            </div>
-            <form action="index.php" method="POST">
-
-                <input type="text" name="name" placeholder="Enter your name">
-                <input type="email" name="email" placeholder="Enter your email">
-                <textarea name="message" placeholder="Enter your message"></textarea>
-                <button style="background-color: transparent; border:0;" type="submit" name="submit" value="Send Message"><a> send message</a></button>
-            </form>
-        </div>
-    </section>
-
-    <!-------- Footer Started --------->
-
-    <section id="footer">
-        <div class="main-footer">
-            <div class="logoinfo" data-aos="fade-up">
-                <h2>Passion Driven</h2>
-                <p>Giving back to the society</p>
-
-                <div class="contact-details">
-                    <h1>Contact Us</h1>
-                    <li>
-                        <div class="fa fa-phone"></div><a href="tel:+254712345678">+254712345678</a>
-                    </li>
-                    <li>
-                        <div class="fa fa-envelope"></div><a href="mailto:wenbusale383@gmail.com">wenstech@gmail.com</a>
-                    </li>
-                    </li>
+                <div class="col-md-4">
+                    <!-- Additional footer content if needed -->
                 </div>
             </div>
-            <div class="com " data-aos="fade-up">
-                <h1>About</h1>
-                <ul>
-                    <li><a href="./about.php">About</a></li>
-                    <li><a href="./mission.php">Objectives</a></li>
-                    <li><a href="./service.php"> Projects</a></li>
-                    <li style="margin-top:10px; ;"><a href="./admin/index.php"> Admin Login</a></li>
-                </ul>
-            </div>
-            <div class="info " data-aos="fade-up">
-                <!-- <h1>Infomation</h1>
-                <ul>
-                    <li><a href="">Blogs</a></li>
-                    <li><a href="">Gallary</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul> -->
-            </div>
         </div>
-    </section>
-
-    <footer>
-        © 2024 All Rights Reserved Passion Driven
     </footer>
 
+    <div class="bg-dark text-light text-center py-2">
+        <small>© 2024 All Rights Reserved Passion Driven</small>
+    </div>
 
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
-
             debounceDelay: 50,
             throttleDelay: 99,
             offset: 120,
@@ -277,31 +261,8 @@ if (isset($_POST['submit'])) {
             once: false,
             mirror: false,
             anchorPlacement: 'top-bottom',
-
         });
     </script>
-
-    <script src="./assets/main.js "></script>
-    <script>
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) {
-                myIndex = 1
-            }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 4000); // Change image every 2 seconds
-        }
-    </script>
-
-
 </body>
 
 </html>
