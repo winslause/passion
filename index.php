@@ -74,25 +74,31 @@ if (isset($_POST['submit'])) {
 
         #homeCarousel {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            height: 100%;
         }
 
         .carousel-img {
             width: 100%;
-            height: 550px;
+            height: 100%;
             object-fit: cover;
-        }
+            object-position: center top;
 
-        @media (max-width: 768px) {
-            .carousel-img {
-                height: 300px;
+            @media (max-width: 768px) {
+                .carousel-img {
+                    height: 300px;
+                }
             }
-        }
 
-        @media (max-width: 576px) {
-            .carousel-img {
-                height: 200px;
+            @media (max-width: 576px) {
+                .carousel-img {
+                    height: 200px;
+                }
             }
-        }
     </style>
 
 

@@ -33,7 +33,7 @@
         }
 
         .bullet-list {
-            list-style-type: disc;
+            list-style-type: none;
             padding-left: 20px;
         }
 
@@ -41,14 +41,16 @@
             position: relative;
             padding-left: 15px;
         }
-
         .bullet-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #000;
-            /* You can change the color of the bullet */
-        }
+    content: "\2192"; /* Unicode for right arrow */
+    color: #0056b3; /* Change color as needed */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+       
     </style>
     <style>
         .navbar {
@@ -92,27 +94,28 @@
 
         <!-- Navbar Started-->
         <header id="header">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand d-flex align-items-center" href="#">
-                        <img src="./assets/images/logo.jpg" alt="logo" height="90" class="d-inline-block align-top me-2">
-                        <span style="font-size: 24px; color: blue; font-weight: bold;">PASSION DRIVEN</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="./index.php">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="./about.php">About us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="./mission.php">Objectives</a></li>
-                            <li class="nav-item"><a class="nav-link" href="./service.php">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
-                            <li class="nav-item"><a class="nav-link " href="./index.php#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+         <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./assets/images/logo.jpg" alt="logo" height="60" class="d-inline-block align-top me-2">
+                <span style="font-size: 24px; color: #0056b3; font-weight: bold;">PASSION DRIVEN</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.php">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./mission.php">Objectives</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./service.php">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
         </header>
 
         <!------- Mission Started -------->
@@ -127,22 +130,22 @@
                         <h1 class="mb-4">Objectives</h1>
                         <ul class="list-unstyled bullet-list">
                             <li class="mb-3">
-                                <p>Providing assistance in the advancement of culture and society in order to extend a helping hand towards various community issues and uplift the morals of the society in a dignified manner</p>
+                                Providing assistance in the advancement of culture and society in order to extend a helping hand towards various community issues and uplift the morals of the society in a dignified manner
                             </li>
                             <li class="mb-3">
-                                <p>Ultimate goal of the foundation will be to help each and every individual approaching in the best yet effective manner.</p>
+                                Ultimate goal of the foundation will be to help each and every individual approaching in the best yet effective manner.
                             </li>
                             <li class="mb-3">
-                                <p>Working towards achieving equality amongst society.</p>
+                                Working towards achieving equality amongst society.
                             </li>
                             <li class="mb-3">
-                                <p>Uplifting of the society.</p>
+                                Uplifting of the society.
                             </li>
                             <li class="mb-3">
-                                <p>Making talent meet Resources</p>
+                                Making talent meet Resources
                             </li>
                             <li class="mb-3">
-                                <p>Spreading awareness in the society by analyzing various aspect of Root cause of the Situation</p>
+                                Spreading awareness in the society by analyzing various aspect of Root cause of the Situation
                             </li>
                         </ul>
                     </div>

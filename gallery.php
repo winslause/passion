@@ -68,16 +68,32 @@ include('config.php');
         #homeCarousel {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Existing styles... */
+
+        @media (max-width: 991px) {
+            .navbar-brand {
+                max-width: 80%;
+            }
+
+            .navbar-toggler {
+                order: 2;
+            }
+
+            .brand-text {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <header>
+    
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="./assets/images/logo.jpg" alt="logo" height="90" class="d-inline-block align-top me-2">
-                    <span style="font-size: 24px; color: blue; font-weight: bold;">PASSION DRIVEN</span>
+                    <img src="./assets/images/logo.jpg" alt="logo" height="60" class="d-inline-block align-top me-2">
+                    <span class="brand-text">PASSION DRIVEN</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -94,7 +110,7 @@ include('config.php');
                 </div>
             </div>
         </nav>
-    </header>
+   
 
     <main>
         <div style="background-color:deeppink;" class="container-fluid py-3 text-center text-white mb-4">
@@ -157,7 +173,7 @@ include('config.php');
         </div>
     </footer>
 
-    <div class="bg-secondary text-white text-center py-2">
+    <div class="bg-dark text-white text-center py-2">
         © 2024 All Rights Reserved Passion Driven
     </div>
 

@@ -60,29 +60,28 @@ include('config.php');
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center w-100">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="./assets/images/logo.jpg" alt="logo" height="90" class="d-inline-block align-top me-2">
-          <span style="font-size: 24px; color: blue; font-weight: bold;">PASSION DRIVEN</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="./about.php">About us</a></li>
-          <li class="nav-item"><a class="nav-link" href="./mission.php">Objectives</a></li>
-          <li class="nav-item"><a class="nav-link" href="./service.php">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link " href="./index.php#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./assets/images/logo.jpg" alt="logo" height="60" class="d-inline-block align-top me-2">
+                <span style="font-size: 24px; color: #0056b3; font-weight: bold;">PASSION DRIVEN</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.php">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./mission.php">Objectives</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./service.php">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
   <!-- About Section -->
