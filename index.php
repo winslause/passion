@@ -72,33 +72,53 @@ if (isset($_POST['submit'])) {
             margin-right: 10px;
         }
 
+        /* Carousel container */
         #homeCarousel {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            height: 100vh;
+            margin-bottom: 0;
             overflow: hidden;
+
         }
 
-        .carousel-item {
-            height: 100%;
+        /* Carousel images adjusted to show fully */
+        .carousel-img {
+            width: 100%;
+            height: 90vh;
+            /* Increased from 70vh to 90vh */
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-img {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-img {
+                height: 50vh;
+            }
         }
 
         .carousel-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
+            object-position: center;
+        }
 
-            @media (max-width: 768px) {
-                .carousel-img {
-                    height: 300px;
-                }
+        @media (max-width: 768px) {
+            .carousel-img {
+                height: 60vh;
             }
+        }
 
-            @media (max-width: 576px) {
-                .carousel-img {
-                    height: 200px;
-                }
+        @media (max-width: 576px) {
+            .carousel-img {
+                height: 50vh;
             }
+        }
     </style>
 
 
@@ -150,12 +170,13 @@ if (isset($_POST['submit'])) {
     </div>
 
 
+
     <!-- Home Section -->
     <section id="home" class="py-5 " style="background-color:gray;">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto text-center" data-aos="fade-up" style="margin:10px;">
-                    <h1 class="display-4">Giving back to the society</h1>
+                    <h1 style="margin-top:20px" class="display-4">Giving back to the society</h1>
                     <p class="lead">Our aim is to have champions and leaders whom can share and guide others.</p>
                     <a href="#contact" class="btn btn-primary btn-lg">CONTACT</a>
                 </div>
