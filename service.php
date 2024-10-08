@@ -15,7 +15,7 @@
 
     <style>
         .project-image {
-            filter: grayscale(100%);
+            filter: grayscale(0%);
             transition: filter 0.6s ease-in-out;
         }
 
@@ -25,7 +25,7 @@
 
         @media (hover: none) {
             .project-image {
-                filter: grayscale(100%);
+                filter: grayscale(0%);
                 transition: filter 0.6s ease-in-out;
             }
 
@@ -51,6 +51,27 @@
 
             .brand-text {
                 font-size: 18px;
+            }
+        }
+
+
+        .project-image1 {
+            filter: grayscale(0%);
+            transition: filter 0.6s ease-in-out;
+        }
+
+        .project-image1:hover {
+            filter: grayscale(0%);
+        }
+
+        @media (hover: none) {
+            .project-image1 {
+                filter: grayscale(0%);
+                transition: filter 0.6s ease-in-out;
+            }
+
+            .project-image1:active {
+                filter: grayscale(0%);
             }
         }
     </style>
@@ -88,9 +109,20 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
-    <!-- <style>
-        @media (max-width: 576px) {}
-    </style> -->
+
+    <style>
+        .project-image1 {
+            position: absolute;
+            /* Position images on top of each other */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            /* Fade transition for 1 second */
+        }
+
+        .project-image1.show {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -137,10 +169,20 @@
             </div>
         </div>
 
-        <div class="row align-items-center mb-5" data-aos="fade-up">
+        <div class="row align-items-center mb-5" data-aos="fade-up" id="chessmove">
             <div class="col-md-6 order-md-2">
-                <img src="./assets/images/chess.jpg" class="img-fluid project-image" alt="Chess club">
+                <div style="position: relative; height: 300px;"> <!-- Ensure a container for positioning images -->
+                    <img src="./assets/images/ches1.jpg" class="img-fluid project-image1 show" id="slide1" alt="Chess club">
+                    <img src="./assets/images/chess2.jpg" class="img-fluid project-image1" id="slide2" alt="Chess club">
+                    <img src="./assets/images/chess3.jpg" class="img-fluid project-image1" id="slide3" alt="Chess club">
+                    <img src="./assets/images/chess4.jpg" class="img-fluid project-image1" id="slide4" alt="Chess club">
+                    <img src="./assets/images/chess5.jpg" class="img-fluid project-image1" id="slide5" alt="Chess club">
+                    <img src="./assets/images/chess6.jpg" class="img-fluid project-image1" id="slide6" alt="Chess club">
+                </div>
             </div>
+
+
+
             <div class="col-md-6 order-md-1">
                 <h2>Chess club</h2>
                 <p>Growing up in Kibera we had a lot of playing fields as we continue growing so does the developments around our locality hence the space which was used as playing field were develop and it was difficult now for us to go and play football and most of sports this pose a huge risk to the generation which is coming up since they have a lot of time if not well utilized it can go to waste. Secondly Kibera being largest informal settlements In Nairobi when kids get a lot of time, they may end up in substance abuse in boys and teenage pregnancy in girls, with this we introduced chess in Kibera.</p>
@@ -195,6 +237,34 @@
             mirror: false,
             anchorPlacement: 'top-bottom',
         });
+    </script>
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.project-image1');
+
+        function showSlides() {
+            // Hide all images by removing the 'show' class
+            slides.forEach(slide => {
+                slide.classList.remove('show');
+            });
+
+            // Increment the slide index
+            slideIndex++;
+
+            // If we've reached the end of the slides, loop back to the start
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            // Show the current slide by adding the 'show' class
+            slides[slideIndex - 1].classList.add('show');
+
+            // Change slide every 3 seconds (3000 milliseconds)
+            setTimeout(showSlides, 4000);
+        }
+
+        // Initialize the slideshow when the page loads
+        showSlides();
     </script>
 </body>
 
