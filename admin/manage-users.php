@@ -70,7 +70,7 @@ if (isset($_GET['delete_id'])) {
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>admin portal</title>
-   
+
 
 </head>
 
@@ -241,7 +241,8 @@ if (isset($_GET['delete_id'])) {
                                         <td>
                                             <button style="margin: 5px;" class="btn btn-warning btn-sm"
                                                 onclick="location.href='manage-users.php?edit_id=<?php echo htmlentities($result->id); ?>#updateUserForm'">Edit</button>
-                                            <a style="margin: 5px; href=" manage-users.php?delete_id=<?php echo htmlentities($result->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+                                            <a style="margin: 5px;" href="manage-users.php?delete_id=<?php echo htmlentities($result->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+
                                         </td>
                                     </tr>
                             <?php $cnt = $cnt + 1;
