@@ -103,12 +103,7 @@ if (isset($_GET['delete_id'])) {
                             <li class="sidebar-item">
                                 <a href="manage-users.php#addmember" class="sidebar-link">manage team</a>
                             </li>
-                            <li class="sidebar-item">
-                                <a href="manage-users.php#addmember" class="sidebar-link">Edit Member</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="manage-users.php#addmember" class="sidebar-link">Remove Member</a>
-                            </li>
+                           
                         </ul>
                     </li>
                     <li class="sidebar-item">
@@ -121,9 +116,7 @@ if (isset($_GET['delete_id'])) {
                             <li class="sidebar-item">
                                 <a href="manage-gallery.php" class="sidebar-link">manage gallery</a>
                             </li>
-                            <li class="sidebar-item">
-                                <a href="manage-gallery.php" class="sidebar-link">Delete Image</a>
-                            </li>
+                            
                         </ul>
                     </li>
 
@@ -297,7 +290,8 @@ if (isset($_GET['delete_id'])) {
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Photo</label>
-                            <input type="file" class="form-control" name="photo1" id="exampleInputPassword1">
+                            <input type="file" class="form-control" name="photo1" id="photo2">
+                            <span id="error-message" style="color: red;"></span>
                         </div>
 
 
@@ -381,7 +375,8 @@ if (isset($_GET['delete_id'])) {
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Update Photo </label>
-                                        <input type="file" class="form-control" name="photo1" id="exampleInputPassword1">
+                                        <input type="file" class="form-control" name="photo1" id="photo1">
+                                        <span id="error-message1" style="color: red;"></span>
                                     </div>
 
 
@@ -471,6 +466,40 @@ if (isset($_GET['delete_id'])) {
                 // For example:
                 document.getElementById('updateUserId').value = userId;
             });
+        });
+    </script>
+    <script>
+        document.getElementById('updateUserForm').addEventListener('submit', function(e) {
+            const fileInput = document.getElementById('photo1');
+            const file = fileInput.files[0];
+            const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+            const errorMessage = document.getElementById('error-message1');
+
+            if (file) {
+                if (file.size > maxSize) {
+                    errorMessage.textContent = "File size must be less than 2MB.";
+                    e.preventDefault(); // Prevent form submission
+                } else {
+                    errorMessage.textContent = ""; // Clear any previous errors
+                }
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('newUserForm').addEventListener('submit', function(e) {
+            const fileInput = document.getElementById('photo2');
+            const file = fileInput.files[0];
+            const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+            const errorMessage = document.getElementById('error-message');
+
+            if (file) {
+                if (file.size > maxSize) {
+                    errorMessage.textContent = "File size must be less than 2MB.";
+                    e.preventDefault(); // Prevent form submission
+                } else {
+                    errorMessage.textContent = ""; // Clear any previous errors
+                }
+            }
         });
     </script>
 </body>

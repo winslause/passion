@@ -50,12 +50,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 <li class="sidebar-item">
                                     <a href="manage-users.php#addmember" class="sidebar-link">manage team</a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="manage-users.php#addmember" class="sidebar-link">Edit Member</a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="manage-users.php#addmember" class="sidebar-link">Remove Member</a>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li class="sidebar-item">
@@ -68,9 +63,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 <li class="sidebar-item">
                                     <a href="manage-gallery.php" class="sidebar-link">manage gallery</a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="manage-gallery.php" class="sidebar-link">Delete Image</a>
-                                </li>
+                               
                             </ul>
                         </li>
 

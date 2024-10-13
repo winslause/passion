@@ -48,14 +48,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                             </a>
                             <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                                 <li class="sidebar-item">
-                                    <a href="manage-users.php#addmember" class="sidebar-link">Add Member</a>
+                                    <a href="manage-users.php#addmember" class="sidebar-link">Manage Team</a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="manage-users.php#addmember" class="sidebar-link">Edit Member</a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="manage-users.php#addmember" class="sidebar-link">Remove Member</a>
-                                </li>
+                               
                             </ul>
                         </li>
                         <li class="sidebar-item">
@@ -68,9 +63,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 <li class="sidebar-item">
                                     <a href="manage-gallery.php" class="sidebar-link">manage gallery</a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="manage-gallery.php" class="sidebar-link">Delete Image</a>
-                                </li>
+                               
                             </ul>
                         </li>
 
@@ -157,7 +150,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                         <div class="row">
                             <div class="col-md-6 offset-md-3">
                                 <h2 class="mb-4">Add New Image to our Gallery</h2>
-                                <form action="manage-gallery.php" method="POST" enctype="multipart/form-data">
+                                <form action="manage-gallery.php" id="uploadForm" method="POST" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label for="imageTitle" class="form-label">Image Title</label>
                                         <input type="text" class="form-control" id="imageTitle" name="imageTitle" required>
@@ -169,6 +162,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <div class="mb-3">
                                         <label for="imageFile" class="form-label">Select Image</label>
                                         <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required>
+                                        <span id="error-message" style="color: red;"></span>
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="addImage">Add to Gallery</button>
                                 </form>
@@ -282,6 +276,23 @@ if (strlen($_SESSION['alogin']) == 0) {
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
         </script>
         <script src="script.js"></script>
+        <script>
+            document.getElementById('uploadForm').addEventListener('submit', function(e) {
+                const fileInput = document.getElementById('imageFile');
+                const file = fileInput.files[0];
+                const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+                const errorMessage = document.getElementById('error-message');
+
+                if (file) {
+                    if (file.size > maxSize) {
+                        errorMessage.textContent = "File size must be less than 2MB.";
+                        e.preventDefault(); // Prevent form submission
+                    } else {
+                        errorMessage.textContent = ""; // Clear any previous errors
+                    }
+                }
+            });
+        </script>
     </body>
 
     </html><?php } ?>
